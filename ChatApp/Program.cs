@@ -16,10 +16,11 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
-// Create database
+// Create database (delete old one to apply new schema)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ChatDbContext>();
+    db.Database.EnsureDeleted();
     db.Database.EnsureCreated();
 }
 

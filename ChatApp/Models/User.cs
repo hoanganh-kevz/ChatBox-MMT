@@ -6,7 +6,9 @@ namespace ChatApp.Models
         public string? Username { get; set; }
         public string? ConnectionId { get; set; }
         public bool IsOnline { get; set; }
+        public string? AvatarColor { get; set; }
         public DateTime CreatedAt { get; set; }
+        public DateTime LastSeen { get; set; }
         
         // Relationships
         public ICollection<ChatRoomMember> ChatRoomMembers { get; set; } = new List<ChatRoomMember>();
